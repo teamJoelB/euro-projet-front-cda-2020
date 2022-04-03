@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="my-font mt-4">
+        <form #poule="ngForm" (ngSubmit)="createPoule(poule.value)">
+            <div class="form-group">
+                <label for="" class="text-secondary">Nom poule</label>
+                <input type="text" class="form-control" name="nom" ngModel="">
+            </div>
+            <div class="form-group">
+                <label for="" class="text-secondary">Nombre de match</label>
+                <input type="number" class="form-control" name="nbMatchPoule" [(ngModel)]="nbMatchPoule">
+            </div>
+
+            <div>
+                <button type="button" mat-icon-button class="btn btn-block" (click)="file.click()">
+                    <mat-icon>add_photo_alternate</mat-icon>
+                </button>
+            </div>
+
+            <input type="file" [hidden]="true" #file accept="image/*" required ngModel="" name="image" (change)="onFileChanged($event)">
+            <div class="text-center">
+                <img [src]="mediaUrl" alt="imageUpl" width="20%" *ngIf="mediaUrl">
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">create</button>
+        </form>
+
+    </div>
+</div>
